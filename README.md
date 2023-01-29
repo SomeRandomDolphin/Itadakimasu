@@ -14,7 +14,7 @@ Website ini menggunakan Media Query dan banyak fitur lainnya untuk menciptakan R
 
 ## Identitas Pembuat
 
-Nama: Pradipta Arya Daniswara
-Universitas: Institut Teknologi Sepuluh Nopember
-NIM: 5025221185
+Nama: Pradipta Arya Daniswara\
+Universitas: Institut Teknologi Sepuluh Nopember\
+NIM: 5025221185\
 ID GDSC: 220020014
