@@ -54,7 +54,7 @@
                             <a type="button" class="btn btn-outline-secondary my-4" href="../../index.html">Back to menu</a>
                         </div>
                         <div class="col-image">
-                            <img id="foodimage" class="img-fluid rounded" width="300" height="300" alt="English Breakfast">
+                            <img id="foodimage" class="img-fluid rounded" width="300" height="300" alt="Food Image">
                         </div>
                     </div>
                 </div>
@@ -98,12 +98,20 @@
 </html>
 
 <script type="text/javascript">
-    const api_url = "https://www.themealdb.com/api/json/v1/1/search.php?s=english%20breakfast";
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+
+    const api_url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + params.menuName;
     async function getapi(url) {
         const response = await fetch(url);
         var data = await response.json();
-        console.log(data.meals[0]);
-        show(data);
+        if(data.meals == null) {
+            error(data);
+        }
+        else {
+            console.log(data.meals[0]);
+            show(data);
+        }   
     }
     getapi(api_url);
 
@@ -144,5 +152,10 @@
             counter++;
         }
         document.getElementById("ingredients").innerHTML = ingredients;
+    }
+
+    function error(data) {
+        alert("Meals not found!");
+        window.history.back();
     }
 </script>
